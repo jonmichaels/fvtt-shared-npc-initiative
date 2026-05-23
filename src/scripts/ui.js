@@ -23,8 +23,14 @@ Hooks.on('renderCombatTracker', (combatTracker, /**@type {HTMLElement}*/htmlElem
     toggleInput.disabled = false;
   })
   let label;
-  if (game.i18n.has(`TYPES.Actor.group`) && game.i18n.has(`DND5E.NPC.Label`)) {
-    label = `${game.i18n.format(`TYPES.Actor.group`)} ${game.i18n.format(`DND5E.NPC.Label`)}`;
+  if (game.i18n.has(`TYPES.Actor.group`)) {
+    if (game.i18n.has(`DND5E.NPC.Label`)) {
+      label = `${game.i18n.format(`TYPES.Actor.group`)} ${game.i18n.format(`DND5E.NPC.Label`)}`;
+    } else if (game.i18n.has(`BF.NPC[other]`)) {
+      label = `${game.i18n.format(`TYPES.Actor.group`)} ${game.i18n.format(`BF.NPC[other]`)}`;
+    } else {
+      label = `Group NPC`;
+    }
   } else {
     label = `Group NPC`;
   }

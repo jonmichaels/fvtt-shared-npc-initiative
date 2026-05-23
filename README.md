@@ -1,21 +1,60 @@
-[![Foundry version](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Furl%3Dhttps%253A%252F%252Fgithub.com%252FTPNils%252Ffvtt-shared-npc-initiative%252Freleases%252Fdownload%252Flatest%252Fmodule.json%26style%3Dflat)](https://foundryvtt.com/)
-![System version](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fsystem%3Furl%3Dhttps%253A%252F%252Fgithub.com%252FTPNils%252Ffvtt-shared-npc-initiative%252Freleases%252Fdownload%252Flatest%252Fmodule.json%26style%3Dflat%26nameType%3Dshort%26showVersion%3D1)
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/TPNils/fvtt-shared-npc-initiative?style=flat&label=latest+version)](https://github.com/TPNils/fvtt-shared-npc-initiative/releases/tag/latest)
-[![GitHub issues](https://img.shields.io/github/issues/TPNils/fvtt-shared-npc-initiative?style=flat)](https://github.com/TPNils/fvtt-shared-npc-initiative/issues)
+# Shared NPC Initiative
 
-![GitHub license](https://img.shields.io/github/license/TPNils/fvtt-shared-npc-initiative?style=flat)
+> **⚠️ Disclaimer:** This module was modified by an AI coding agent (Hephaestus, via Hermes Agent) under the direction of Jon Michaels to add Black Flag support. The original module was created by TPNils. While tested and functional, users should verify behavior in their own games.
 
-# Shared NPC initiative
-When rolling initiative for NPCs, ensure that the NPCs that are of the same type get the same initiative. This can be toggled off.
+[![Foundry VTT](https://img.shields.io/badge/Foundry-v13-orange)](https://foundryvtt.com)
+[![D&D 5E](https://img.shields.io/badge/System-D%26D%205E-red)](https://dnd.wizards.com)
+[![PF1e](https://img.shields.io/badge/System-PF1e-darkgreen)](https://paizo.com/pathfinder)
+[![Black Flag](https://img.shields.io/badge/System-Black%20Flag%20%2F%20ToV-blue)](https://github.com/koboldpress/black-flag)
+[![Version](https://img.shields.io/badge/Version-1.2.0-green)](https://github.com/jonmichaels/fvtt-shared-npc-initiative/releases)
+[![License](https://img.shields.io/badge/License-GPL%203.0-lightgrey)](LICENSE)
 
-## Re-roll initiative
-Using "Re-roll initiative" will always ignore the shared initiative and generate a new roll.  
-![Re-roll initiative](/assets/re-roll-initiative.jpg)
+Groups identical NPCs under a single initiative roll — reducing GM workload during combat. Supports **Black Flag / Tales of the Valiant**, **D&D 5E**, and **Pathfinder 1E**. Toggle on/off from the Combat Tracker.
 
-## DnD5e
-The DND system natively groups the actors for you visually.  
-![dnd5e](/assets/dnd5e.jpg)
+## Features
 
-## PF1e
-As I don't play PF1e, I simply checked if it's compatible and it seems to be (without knowing anything about the system).  
-![pf1e](/assets/pf1e.jpg)
+| Feature | Description |
+|---------|-------------|
+| **Shared Initiative** | NPCs of the same type (e.g., "Goblin", "Skeleton") receive identical initiative results |
+| **Combat Tracker Toggle** | Enable or disable grouping with a checkbox in the Combat Tracker header |
+| **Manual Re-roll** | The "Re-roll initiative" function always generates fresh, individual rolls for all combatants |
+| **Multi-System** | Works with Black Flag / ToV, D&D 5E, and Pathfinder 1E out of the box |
+
+## Installation
+
+**In Foundry VTT:**
+1. Go to **Add-on Modules** → **Install Module**
+2. Paste the manifest URL: `https://github.com/jonmichaels/fvtt-shared-npc-initiative/releases/latest/download/module.json`
+3. Click **Install**
+4. Enable the module in your world
+
+**Manual:**
+Download the [latest release](https://github.com/jonmichaels/fvtt-shared-npc-initiative/releases) and extract to `Data/modules/shared-npc-initiative/`.
+
+## System Compatibility
+
+| System | Status |
+|--------|--------|
+| **Black Flag / Tales of the Valiant** | ✅ Supported (v2.0+) |
+| **D&D 5E** | ✅ Supported (v5.0+) |
+| **Pathfinder 1E** | ✅ Supported (v11+) |
+
+Other systems may work via the generic initiative interception — they just won't get the system-specific roll prompt skip optimization.
+
+## How It Works
+
+The module uses two strategies:
+
+1. **System-specific hook** — Intercepts the system's initiative configuration to set a fixed value for same-type NPCs, skipping the roll dialog entirely (D&D 5E: `dnd5e.preConfigureInitiative`, Black Flag: `blackFlag.initiativeConfig`)
+2. **Generic Combatant override** — Patches Foundry's `getInitiativeRoll()` to create a shared roll per actor type, ensuring identical results even for systems without dedicated hooks
+
+When the "Group NPC" toggle is off, or when using manual re-roll, standard per-combatant initiative behavior is restored.
+
+## Credits
+
+- **Original module:** [TPNils/fvtt-shared-npc-initiative](https://github.com/TPNils/fvtt-shared-npc-initiative) — created by TPNils
+- **Black Flag support & maintenance:** Jon Michaels, coded by Hephaestus (AI agent via Hermes)
+
+## License
+
+GPL-3.0 — see [LICENSE](LICENSE)
