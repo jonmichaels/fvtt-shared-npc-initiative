@@ -1,6 +1,6 @@
 # Shared NPC Initiative
 
-> **⚠️ Disclaimer:** This module was modified by an AI coding agent (Hephaestus, via Hermes Agent) under the direction of Jon Michaels to add Black Flag support. The original module was created by TPNils. While tested and functional, users should verify behavior in their own games.
+> **⚠️ Disclaimer:** This module was modified by an AI coding agent (Hephaestus, via Hermes Agent) under the direction of Jon Michaels to add Black Flag support. The original module was created by TPNils. While tested and functional, users should verify behavior in their own games before relying on it in critical sessions.
 
 [![Foundry VTT](https://img.shields.io/badge/Foundry-v13-orange)](https://foundryvtt.com)
 [![D&D 5E](https://img.shields.io/badge/System-D%26D%205E-red)](https://dnd.wizards.com)
@@ -31,17 +31,11 @@ Groups identical NPCs under a single initiative roll — reducing GM workload du
 **Manual:**
 Download the [latest release](https://github.com/jonmichaels/fvtt-shared-npc-initiative/releases) and extract to `Data/modules/shared-npc-initiative/`.
 
-## System Compatibility
-
-| System | Status |
-|--------|--------|
-| **Black Flag / Tales of the Valiant** | ✅ Supported (v2.0+) |
-| **D&D 5E** | ✅ Supported (v5.0+) |
-| **Pathfinder 1E** | ✅ Supported (v11+) |
-
-Other systems may work via the generic initiative interception — they just won't get the system-specific roll prompt skip optimization.
-
 ## How It Works
+
+Using the "Re-roll initiative" function will always ignore the shared initiative and generate new, individual rolls for all combatants.
+
+![Re-roll initiative](/assets/re-roll-initiative.jpg)
 
 The module uses two strategies:
 
@@ -49,6 +43,28 @@ The module uses two strategies:
 2. **Generic Combatant override** — Patches Foundry's `getInitiativeRoll()` to create a shared roll per actor type, ensuring identical results even for systems without dedicated hooks
 
 When the "Group NPC" toggle is off, or when using manual re-roll, standard per-combatant initiative behavior is restored.
+
+## System Compatibility
+
+| System | Status |
+|--------|--------|
+| **Black Flag / Tales of the Valiant** | ✅ Supported (v2.0+) |
+| **D&D 5E** | ✅ Supported (v5.0+)  — The D&D 5E system natively groups identical actors in the initiative tracker. |
+| **Pathfinder 1E** | ✅ Supported (v11+)  — Compatible with Pathfinder 1E's initiative mechanics. |
+
+### D&D 5E
+
+The D&D 5E system provides native visual grouping for actors of the same type in the initiative tracker:
+
+![D&D 5E initiative tracker](/assets/dnd5e.jpg)
+
+### Pathfinder 1E
+
+The module works with Pathfinder 1E's initiative system, grouping same-type NPCs under a shared roll:
+
+![PF1e initiative tracker](/assets/pf1e.jpg)
+
+Other systems may work via the generic initiative interception — they will use the Combatant-level roll sharing without the system-specific roll prompt optimization.
 
 ## Credits
 

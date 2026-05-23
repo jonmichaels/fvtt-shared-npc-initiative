@@ -9,11 +9,12 @@
   "description": "Groups identical NPCs under a single initiative roll for Black Flag, D&D 5E, and Pathfinder 1E. Toggle on/off from the Combat Tracker.",
   "authors": [
     {
-      "name": "TPNils"
+      "name": "Jon Michaels",
+      "discord": "jonmichaels#9614",
+      "url": "https://github.com/jonmichaels"
     },
     {
-      "name": "hermes90201",
-      "url": "https://github.com/hermes90201"
+      "name": "TPNils"
     }
   ],
   "url": "https://github.com/jonmichaels/fvtt-shared-npc-initiative",
