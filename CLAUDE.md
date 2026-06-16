@@ -37,11 +37,14 @@ python3 - <<'PY'
 import json, zipfile
 with zipfile.ZipFile('package/module.zip') as zf:
     names = set(zf.namelist())
-    required = {'module.json', 'scripts/index.js'}
+    required = {
+        'shared-npc-initiative/module.json',
+        'shared-npc-initiative/scripts/index.js',
+    }
     missing = required - names
     if missing:
         raise SystemExit(f'Missing required files: {sorted(missing)}')
-    manifest = json.loads(zf.read('module.json'))
+    manifest = json.loads(zf.read('shared-npc-initiative/module.json'))
     print(manifest['id'], manifest['version'])
 PY
 ```
