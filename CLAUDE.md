@@ -4,12 +4,11 @@ Guidance for AI coding agents working on `fvtt-shared-npc-initiative`.
 
 ## Project Overview
 
-Shared NPC Initiative is a Foundry VTT v13 module that groups identical NPC combatants under a single initiative result. This fork is maintained under `github.com/jonmichaels/fvtt-shared-npc-initiative` and adds Black Flag / Tales of the Valiant support to the original TPNils module.
+Shared NPC Initiative is a Foundry VTT v13/v14 module that groups identical NPC combatants under a single initiative result. This fork is maintained under `github.com/jonmichaels/fvtt-shared-npc-initiative` and adds Black Flag / Tales of the Valiant support to the original TPNils module.
 
 Supported systems:
-- D&D 5E (`dnd5e`) v5+
-- Black Flag / Tales of the Valiant (`black-flag`) v2+
-- Pathfinder 1E (`pf1`) v11+
+- D&D 5E (`dnd5e`) v5+; verified v5.3.3 on Foundry v14
+- Black Flag / Tales of the Valiant (`black-flag`) v2+; verified v3.0.075 on Foundry v14
 
 ## Important Repository Facts
 
@@ -119,7 +118,7 @@ The module intentionally skips shared initiative when:
 
 ## Manual Foundry Validation Checklist
 
-Validate in a Foundry v13 world after changes that affect runtime behavior:
+Validate in Foundry v13/v14 worlds after changes that affect runtime behavior:
 
 1. Enable this module.
 2. Create/add multiple NPC combatants from the same base actor.

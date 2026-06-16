@@ -1,12 +1,12 @@
 {
   "id": "shared-npc-initiative",
   "title": "Shared NPC Initiative",
-  "version": "v1.2.0",
+  "version": "v1.2.1",
   "compatibility": {
     "minimum": "13",
-    "verified": "13"
+    "verified": "14"
   },
-  "description": "Groups identical NPCs under a single initiative roll for Black Flag, D&D 5E, and Pathfinder 1E. Toggle on/off from the Combat Tracker.",
+  "description": "Groups identical NPCs under a single initiative roll for Black Flag and D&D 5E. Toggle on/off from the Combat Tracker.",
   "authors": [
     {
       "name": "Jon Michaels",
@@ -38,15 +38,7 @@
         "type": "system",
         "compatibility": {
           "minimum": "5.0.0",
-          "verified": "5.0.4"
-        }
-      },
-      {
-        "id": "pf1",
-        "type": "system",
-        "compatibility": {
-          "minimum": "11",
-          "verified": "11.8"
+          "verified": "5.3.3"
         }
       },
       {
@@ -54,7 +46,7 @@
         "type": "system",
         "compatibility": {
           "minimum": "2.0.0",
-          "verified": "2.0.074"
+          "verified": "3.0.075"
         }
       }
     ]
